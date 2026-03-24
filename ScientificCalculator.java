@@ -15,12 +15,14 @@ public class ScientificCalculator extends JFrame implements ActionListener {
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
+        // Setup the display screen
         display = new JTextField();
         display.setFont(new Font("Arial", Font.BOLD, 22));
         display.setEditable(false);
         display.setHorizontalAlignment(JTextField.RIGHT);
         add(display, BorderLayout.NORTH);
 
+        // Create button panel with 6 rows and 4 columns
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(6, 4, 5, 5));
 
@@ -51,12 +53,13 @@ public class ScientificCalculator extends JFrame implements ActionListener {
         try {
 
             if (cmd.matches("[0-9.]")) {
+                // Append digit or dot to display
                 display.setText(display.getText() + cmd);
             }
 
             else if (cmd.equals("+") || cmd.equals("-") || cmd.equals("*") ||
                      cmd.equals("/") || cmd.equals("%") || cmd.equals("xʸ")) {
-
+                // Store first number and the operator, then clear for second input
                 num1 = Double.parseDouble(display.getText());
                 operator = cmd;
                 display.setText("");
@@ -81,32 +84,30 @@ public class ScientificCalculator extends JFrame implements ActionListener {
                 display.setText(String.valueOf(result));
             }
 
+            // Scientific functions — all take current display value as input
             else if (cmd.equals("√")) {
                 num1 = Double.parseDouble(display.getText());
                 display.setText(String.valueOf(Math.sqrt(num1)));
             }
-
             else if (cmd.equals("sin")) {
                 num1 = Double.parseDouble(display.getText());
                 display.setText(String.valueOf(Math.sin(Math.toRadians(num1))));
             }
-
             else if (cmd.equals("cos")) {
                 num1 = Double.parseDouble(display.getText());
                 display.setText(String.valueOf(Math.cos(Math.toRadians(num1))));
             }
-
             else if (cmd.equals("tan")) {
                 num1 = Double.parseDouble(display.getText());
                 display.setText(String.valueOf(Math.tan(Math.toRadians(num1))));
             }
-
             else if (cmd.equals("log")) {
                 num1 = Double.parseDouble(display.getText());
                 display.setText(String.valueOf(Math.log10(num1)));
             }
 
             else if (cmd.equals("C")) {
+                // Clear the display
                 display.setText("");
             }
 
