@@ -10,9 +10,6 @@ A simple Scientific Calculator built with Java Swing.
 - Error handling for divide by zero and invalid inputs
 - Clean GUI with a responsive button layout
 
-## Screenshots
-
-> Add a screenshot of your calculator here
 
 ## Requirements
 
